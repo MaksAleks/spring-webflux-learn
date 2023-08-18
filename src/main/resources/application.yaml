@@ -1,0 +1,32 @@
+server:
+  tomcat:
+    connection-timeout: 10000
+    threads:
+      max: 1
+      min-spare: 1
+spring:
+  application:
+    name: client-service
+  datasource:
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 10
+      auto-commit: false
+      jdbc-url: jdbc:postgresql://localhost:5432/users-db
+      username: postgres
+      password: postgres
+    driver-class-name: org.postgresql.Driver
+
+management:
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus, health'
+  prometheus:
+    metrics:
+      export:
+        enabled: true
