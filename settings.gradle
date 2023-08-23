@@ -1,1 +1,5 @@
 rootProject.name = 'spring-webflux-learn'
+include 'reactive-server'
+include 'clients-server'
+include 'client'
+

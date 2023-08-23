@@ -1,0 +1,30 @@
+server:
+  netty:
+    connection-timeout: 100ms
+  port: 8282
+spring:
+  application:
+    name: client-service
+  datasource:
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 10
+      auto-commit: false
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/users-db
+    username: postgres
+    password: postgres
+
+management:
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus, health'
+  prometheus:
+    metrics:
+      export:
+        enabled: true

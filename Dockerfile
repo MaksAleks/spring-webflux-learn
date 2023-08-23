@@ -4,7 +4,7 @@ WORKDIR /workspace/app
 
 # place layers in order from less likly to chahge to more likely to cange
 COPY build.gradle .
-COPY src src
+COPY reactive-server/src src
 
 # When building a project, gradle downloads all the dependencies from the internet
 # and it downloads them every time the source code changes, if they are not cached.
